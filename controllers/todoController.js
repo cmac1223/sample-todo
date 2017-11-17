@@ -1,4 +1,8 @@
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
+//connect to the database
+mongoose.connect('mongodb://test:test@ds111476.mlab.com:11476/todo-list')
 
 var data = [{item: 'get milk'}, {item: 'walk dog'}, {item: 'kick some coding ass'}];
 
