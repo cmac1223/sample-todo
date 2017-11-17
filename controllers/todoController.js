@@ -2,7 +2,16 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 //connect to the database
-mongoose.connect('mongodb://test:test@ds111476.mlab.com:11476/todo-list')
+mongoose.connect('mongodb://test:test@ds111476.mlab.com:11476/todo-list');
+
+//create a schema - this is like a blueprint
+var todoSchema = new mongoose.Schema({
+  item: String
+});
+
+// create a model 
+var Todo = mongoose.model('Todo', todoSchema);
+
 
 var data = [{item: 'get milk'}, {item: 'walk dog'}, {item: 'kick some coding ass'}];
 
