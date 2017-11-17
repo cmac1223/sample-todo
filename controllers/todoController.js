@@ -2,7 +2,7 @@ var bodyParser = require('body-parser');
 
 var data = [{item: 'get milk'}, {item: 'walk dog'}, {item: 'kick some coding ass'}];
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
+var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 module.exports = function(app){
 
@@ -11,7 +11,6 @@ module.exports = function(app){
   });
   
   app.post('/todo', urlencodedParser, function(request, response){
-    console.log(request.body)
     data.push(request.body);
     response.json(data);
   });
