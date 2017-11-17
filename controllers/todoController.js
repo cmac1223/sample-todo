@@ -16,7 +16,10 @@ module.exports = function(app){
   });
   
 
-  app.delete('/todo', function(request, response){
-
+  app.delete('/todo/:item', function(request, response){
+    data = data.filter(function(todo){
+      return todo.item.replace(/ /g, '-') !== request.params.item;
+    });
+    response.json(data);
   });
 };
